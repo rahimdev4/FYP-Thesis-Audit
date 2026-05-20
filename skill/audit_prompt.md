@@ -1,105 +1,370 @@
 # 🔍 FYP Project Audit — AI Prompt
 
-> **INSTRUCTIONS FOR AI:** Read this entire file carefully, then audit the project and generate the output file.
+> **INSTRUCTIONS FOR AI:** Read this file carefully. You will audit this project in **5 separate steps**. Each step generates ONE file. Do NOT try to do everything at once — this avoids token limits.
 
 ---
 
-## YOUR TASK
+## ⚠️ CRITICAL: STEP-BY-STEP EXECUTION
 
-You are a **Final Year Project (FYP) Thesis Auditor**. Your job is to deeply analyze a software project and produce a comprehensive audit document that captures EVERY detail needed to write a university thesis.
+**DO NOT** generate the entire audit in one response. You **MUST** work in steps.
 
-**Output file:** Create `PROJECT_AUDIT.md` in the project root using the template from `uom-thesis-audit/audit_template.md`.
-
----
-
-## AUDIT PROCESS — Follow These Steps in Order
-
-### Phase 1: Project Discovery
-1. List the **entire directory structure** (all folders and files)
-2. Identify the **framework/language** (Flutter, React, Node.js, Python, etc.)
-3. Read the **main entry point** file (e.g., `main.dart`, `index.js`, `app.py`)
-4. Read **package/dependency files** (e.g., `pubspec.yaml`, `package.json`, `requirements.txt`)
-5. Read **configuration files** (e.g., `firebase.json`, `.env.example`, `config/`)
-6. Read the **README** if one exists
-
-### Phase 2: Architecture Analysis
-1. Identify the **architecture pattern** (MVVM, MVC, Clean Architecture, etc.)
-2. Map out the **folder structure** and what each folder/module does
-3. Identify **state management** approach (Riverpod, Provider, Redux, Context, etc.)
-4. Identify **navigation/routing** system
-5. Count total source files and lines of code (approximate)
-
-### Phase 3: Feature Audit
-1. Go through **every screen/page** in the app
-2. Document **what each screen does** — every button, input, action
-3. Identify **user flows** (e.g., sign up flow, create item flow, etc.)
-4. List ALL **CRUD operations** (Create, Read, Update, Delete) in the app
-5. Document **special features** (AI, camera, file handling, etc.)
-
-### Phase 4: Data & Database Analysis
-1. Read ALL **model/entity files** — document every field, type, relationship
-2. Identify **local database** (Hive, SQLite, SharedPreferences, etc.)
-3. Identify **cloud database** (Firestore, Supabase, MongoDB, etc.)
-4. Document **database schema** — tables/collections, fields, data types
-5. Map **entity relationships** (1:1, 1:N, N:N) for ERD
-6. Document **data flow** — how data moves through the system
-
-### Phase 5: Backend & API Analysis
-1. List ALL **external APIs** used (Firebase Auth, Google APIs, REST endpoints, etc.)
-2. Document **authentication system** — methods, flows, tokens
-3. Document **cloud storage** usage (Google Drive, S3, Firebase Storage, etc.)
-4. List ALL **API endpoints** or **service functions** with their purpose
-5. Document **error handling** approach
-
-### Phase 6: UI/UX Analysis
-1. Document the **design system** — colors, fonts, spacing, themes
-2. List **light/dark mode** support details
-3. Document **animations and transitions**
-4. Identify **third-party UI packages** used
-5. Map out **navigation flow** (which screen leads where)
-
-### Phase 7: Testing & Deployment
-1. Check for **unit tests, widget tests, integration tests**
-2. Document **build configurations** (Android, iOS, web)
-3. Note **deployment targets** (Play Store, App Store, web hosting)
-
-### Phase 8: Thesis-Specific Mapping
-1. Create **ERD entity list** with all attributes and relationships
-2. Create **DFD process list** — all major processes and data stores
-3. Create **Use Case list** — all actors and their use cases
-4. Map **screenshots needed** — which screens need screenshots and for which chapter
-5. Create a **test case table** — feature, input, expected output, result
+### How This Works:
+1. The user will ask you to run **one step at a time**
+2. Each step creates **one output file** (small, focused)
+3. After all 5 steps, the user has a complete audit split across 5 files
+4. These 5 files together = full project documentation for thesis writing
 
 ---
 
-## RULES
+## STEP 1: Project Overview & Tech Stack
+**Output file:** `AUDIT_01_overview.md`
+**Token cost:** Low (~200 lines)
 
-1. **Be exhaustive** — document EVERYTHING, not just the main features
-2. **Read actual code** — don't guess from file names alone
-3. **Include code snippets** — for models, key functions, and configurations
-4. **Use tables** — for structured data (models, packages, test cases)
-5. **Be specific** — write exact field names, types, package versions
-6. **Count things** — total files, total screens, total packages, total models
-7. **Follow the template** — use `audit_template.md` structure exactly
-8. **Don't skip sections** — if something doesn't apply, write "N/A — [reason]"
+Do the following:
+1. Read the main entry point file (e.g., `main.dart`, `index.js`, `app.py`)
+2. Read the dependency file (e.g., `pubspec.yaml`, `package.json`, `requirements.txt`)
+3. Read the project README if it exists
+4. List the **full directory tree** (folders only, 2 levels deep)
+
+Then write `AUDIT_01_overview.md` with these sections:
+
+```markdown
+# PROJECT AUDIT — Part 1: Overview & Tech Stack
+
+## 1.1 Project Overview
+| Field | Details |
+|-------|---------|
+| Project Name | [name] |
+| Type | [Mobile/Web/API] |
+| Framework | [Flutter/React/etc] |
+| Language | [Dart/JS/Python] |
+| Architecture | [MVVM/MVC/etc] |
+| State Management | [Riverpod/Redux/etc] |
+| Total Source Files | [count] |
+
+## 1.2 Project Description
+[2-3 paragraphs — what it does, who it's for, what problem it solves]
+
+## 1.3 Objectives
+1. [objective 1]
+2. [objective 2]
+...
+
+## 1.4 Folder Structure
+[directory tree]
+
+## 1.5 Folder Descriptions
+| Folder | Purpose |
+|--------|---------|
+...
+
+## 1.6 Technology Stack — All Packages
+| # | Package | Version | Category | Purpose |
+|---|---------|---------|----------|---------|
+| 1 | [name] | [ver] | [Backend/UI/DB/etc] | [what it does] |
+...
+
+## 1.7 Development Tools
+| Tool | Purpose |
+|------|---------|
+...
+```
+
+**STOP after writing this file. Wait for user to ask for Step 2.**
 
 ---
 
-## OUTPUT QUALITY CHECKLIST
+## STEP 2: Features & Screens
+**Output file:** `AUDIT_02_features.md`
+**Token cost:** Medium (~300 lines)
 
-Before finalizing, verify your audit covers:
-- [ ] Project overview (name, type, framework, purpose)
-- [ ] Complete folder structure with explanations
-- [ ] Every feature/screen documented
-- [ ] All data models with fields and types
-- [ ] All packages/dependencies listed with purpose
-- [ ] Database design (local + cloud)
-- [ ] Authentication system details
-- [ ] API integrations documented
-- [ ] UI/UX design system details
-- [ ] ERD entities and relationships ready
-- [ ] DFD processes and data stores ready
-- [ ] Use cases with actors ready
-- [ ] Screenshot placement guide
-- [ ] Test cases table
-- [ ] Technology stack summary table
+Do the following:
+1. Go through **every screen/page file** in the project
+2. Read each screen's code to understand what it displays and what user can do
+3. Read ViewModels/Controllers to understand business logic
+
+Then write `AUDIT_02_features.md` with:
+
+```markdown
+# PROJECT AUDIT — Part 2: Features & Screens
+
+## 2.1 Feature Summary
+| # | Feature | Screens | Description |
+|---|---------|---------|-------------|
+| 1 | [Auth] | [Login, SignUp] | [User authentication] |
+...
+
+## 2.2 Screen-by-Screen Documentation
+
+### Screen: [Screen Name]
+- **File:** `path/to/screen.dart`
+- **Route:** `/screen-route`
+- **Purpose:** [what this screen does]
+- **UI Elements:** [buttons, inputs, cards, lists]
+- **User Actions:** [what user can do]
+- **Data Used:** [what data is displayed/modified]
+- **Navigates To:** [which screens]
+- **Screenshot Figure:** Figure 6.X
+
+[Repeat for EVERY screen]
+
+## 2.3 User Flows
+### Flow 1: [e.g., Sign Up Flow]
+1. User opens app → Splash Screen
+2. Taps "Sign Up" → Sign Up Screen
+3. Enters details → Profile Setup
+4. Completes → Home Screen
+
+[Document 3-5 major flows]
+
+## 2.4 Current vs Proposed System
+| Aspect | Without This App | With This App |
+|--------|-----------------|---------------|
+...
+```
+
+**STOP after writing this file. Wait for user to ask for Step 3.**
+
+---
+
+## STEP 3: Data Models & Database Design
+**Output file:** `AUDIT_03_database.md`
+**Token cost:** Medium (~250 lines)
+
+Do the following:
+1. Read ALL model/entity files
+2. Read the database service/repository files
+3. Read any migration or schema files
+4. Identify relationships between entities
+
+Then write `AUDIT_03_database.md` with:
+
+```markdown
+# PROJECT AUDIT — Part 3: Database & Data Models
+
+## 3.1 Database Technologies
+| Database | Technology | Storage Type | Purpose |
+|----------|-----------|-------------|---------|
+| Local | [Hive/SQLite] | [NoSQL/SQL] | [what it stores] |
+| Cloud | [Firestore/Supabase] | [Document/Relational] | [what it stores] |
+| Cloud Storage | [Drive/S3] | [File] | [what it stores] |
+
+## 3.2 Data Models (Complete)
+
+### Model: [Name]
+**Storage:** [Hive/Firestore/etc] | **Type ID:** [if applicable]
+
+| Field | Type | Key | Nullable | Description |
+|-------|------|-----|----------|-------------|
+| id | String | PK | No | Unique identifier |
+...
+
+**Model Code:**
+```[language]
+// paste actual model class (shortened if very long)
+```
+
+[Repeat for ALL models]
+
+## 3.3 Entity Relationships (ERD Data)
+| Entity A | Relationship | Entity B | Description |
+|----------|-------------|----------|-------------|
+| User | 1 : N | Subject | A user creates many subjects |
+...
+
+## 3.4 Data Dictionary
+| Entity | Attribute | Data Type | Constraint | Description |
+|--------|-----------|-----------|------------|-------------|
+...
+
+## 3.5 Database Operations (CRUD)
+| Entity | Create | Read | Update | Delete | Service File |
+|--------|--------|------|--------|--------|-------------|
+| [Subject] | ✅ | ✅ | ✅ | ✅ | `hive_repo.dart` |
+...
+```
+
+**STOP after writing this file. Wait for user to ask for Step 4.**
+
+---
+
+## STEP 4: Auth, APIs & Backend
+**Output file:** `AUDIT_04_backend.md`
+**Token cost:** Low-Medium (~200 lines)
+
+Do the following:
+1. Read authentication service files
+2. Read API integration files
+3. Read any backend/cloud function files
+4. Read error handling patterns
+
+Then write `AUDIT_04_backend.md` with:
+
+```markdown
+# PROJECT AUDIT — Part 4: Authentication, APIs & Backend
+
+## 4.1 Authentication System
+### Auth Methods
+- [ ] Email/Password
+- [ ] Google Sign-In
+- [ ] Apple Sign-In
+- [ ] Phone Number
+- [ ] Other: [specify]
+
+### Auth Provider: [Firebase Auth / Supabase / Custom]
+
+### Sign Up Flow
+1. [step 1]
+2. [step 2]
+...
+
+### Login Flow
+1. [step 1]
+...
+
+### Password Reset Flow
+1. [step 1]
+...
+
+## 4.2 API Integrations
+
+### API: [Name — e.g., Google Gemini]
+- **Purpose:** [what it does]
+- **SDK/Package:** [package name]
+- **Auth Method:** [API key / OAuth]
+- **Key Functions:**
+  | Function | Input | Output | Description |
+  |----------|-------|--------|-------------|
+  ...
+
+[Repeat for each API]
+
+## 4.3 Key Service Files
+| File | Purpose | Key Methods |
+|------|---------|-------------|
+...
+
+## 4.4 Error Handling
+[How errors are handled — try/catch, Result types, etc.]
+
+## 4.5 Security Measures
+[Auth guards, data isolation, input validation, etc.]
+```
+
+**STOP after writing this file. Wait for user to ask for Step 5.**
+
+---
+
+## STEP 5: UI Design, Diagrams & Testing
+**Output file:** `AUDIT_05_ui_diagrams_testing.md`
+**Token cost:** Medium (~300 lines)
+
+Do the following:
+1. Read theme/styling files
+2. Compile DFD and Use Case data from previous steps
+3. Create test cases for major features
+
+Then write `AUDIT_05_ui_diagrams_testing.md` with:
+
+```markdown
+# PROJECT AUDIT — Part 5: UI Design, Diagrams & Testing
+
+## 5.1 Design System
+### Color Palette
+| Token | Light Mode | Dark Mode | Usage |
+|-------|-----------|-----------|-------|
+...
+
+### Typography
+- Font: [family name]
+- Body: [size]
+- Headings: [size, weight]
+
+### Theme Support
+- [ ] Light Mode
+- [ ] Dark Mode
+- Design System: [Material 3 / Cupertino / Custom]
+
+### Animations
+| Animation | Screen | Package |
+|-----------|--------|---------|
+...
+
+## 5.2 Navigation Map
+```
+App
+├── Tab 1: [name] → [sub-screens]
+├── Tab 2: [name] → [sub-screens]
+...
+```
+
+## 5.3 Screenshot Placement Guide
+### Chapter 6 Screenshots
+| Figure # | Screen | What to Capture |
+|----------|--------|-----------------|
+| 6.1 | [name] | [description] |
+...
+
+### Chapter 7 Screenshots (Test Evidence)
+| Figure # | Test | What to Capture |
+|----------|------|-----------------|
+| 7.1 | [test name] | [description] |
+...
+
+## 5.4 DFD Level-0 Data (Context Diagram)
+**Central Process:** [Project Name] System
+| External Entity | Data In → System | Data Out ← System |
+|----------------|-----------------|-------------------|
+...
+
+## 5.5 DFD Level-1 Data
+| Process # | Name | Description | Data Stores Used |
+|-----------|------|-------------|-----------------|
+...
+
+| Data Store | Technology | Contents |
+|-----------|-----------|----------|
+...
+
+## 5.6 Use Case Data
+### Actors
+| Actor | Type | Description |
+|-------|------|-------------|
+...
+
+### Use Cases
+| Module | Use Case | Actor(s) |
+|--------|----------|----------|
+...
+
+## 5.7 Test Cases
+| # | Module | Test Case | Input | Expected Output | Status |
+|---|--------|-----------|-------|-----------------|--------|
+| 1 | Login | Valid credentials | email + pass | Home screen | Pass |
+...
+[Include 15-25 test cases]
+
+## 5.8 Future Work
+1. [Enhancement 1]
+2. [Enhancement 2]
+...
+
+## 5.9 References
+| # | Reference |
+|---|-----------|
+| [1] | [Package/tool — URL] |
+...
+```
+
+**AUDIT COMPLETE. All 5 files together form the full project documentation.**
+
+---
+
+## RULES FOR EVERY STEP
+
+1. **Read actual code** — don't guess from file names
+2. **Be specific** — exact field names, types, package versions
+3. **Use tables** — for all structured data
+4. **Don't skip sections** — write "N/A" if not applicable
+5. **Keep each file focused** — only write what that step requires
+6. **STOP after each step** — don't continue to the next step automatically

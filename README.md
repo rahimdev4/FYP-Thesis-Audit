@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>AI-Powered Project Auditor for FYP Thesis Writing</strong><br/>
-  Audit any software project → Generate thesis-ready documentation → Write your thesis with AI
+  Audit any software project step-by-step → Generate thesis-ready documentation → Write your thesis with AI
 </p>
 
 <p align="center">
@@ -30,12 +30,12 @@
 
 Writing a **Final Year Project (FYP) thesis** is hard. You spend weeks analyzing your own project, documenting features, drawing diagrams, and formatting chapters — all manually.
 
-**FYP Thesis Audit** automates the hardest part: **understanding and documenting your project.** 
+**FYP Thesis Audit** automates the hardest part: **understanding and documenting your project.**
 
 It gives any AI assistant (ChatGPT, Gemini, Claude, Copilot) a structured set of instructions to:
 
-1. 🔍 **Audit** your entire codebase (architecture, features, database, APIs, UI)
-2. 📄 **Generate** a comprehensive `PROJECT_AUDIT.md` with ALL project details
+1. 🔍 **Audit** your entire codebase in **5 small steps** (no token limit issues!)
+2. 📄 **Generate** 5 focused audit files covering every aspect of your project
 3. 📝 **Write** your thesis chapter-by-chapter using the audit data
 
 > **Built for University of Malakand CS Department** thesis format — but works for any university with minor adjustments.
@@ -46,7 +46,7 @@ It gives any AI assistant (ChatGPT, Gemini, Claude, Copilot) a structured set of
 
 | Output | Description |
 |--------|-------------|
-| 📊 **Complete Project Audit** | 18-section document covering every aspect of your project |
+| 📊 **5 Audit Files** | Complete project documentation split into manageable parts |
 | 🗃️ **ERD Data** | All entities, attributes, relationships — ready for diagrams |
 | 📈 **DFD Data** | Level-0 and Level-1 data flow specifications |
 | 👤 **Use Case Data** | All actors, use cases, include/extend relationships |
@@ -72,53 +72,92 @@ git clone https://github.com/rahimdev4/FYP-Thesis-Audit.git
 ### Step 2: Copy to Your Project
 
 ```bash
-# Copy the audit skill into your FYP project
+# Copy the skill folder into your FYP project
 cp -r FYP-Thesis-Audit/skill/ /path/to/your/project/thesis-audit/
 ```
 
-**Example:**
+**Examples:**
 ```bash
-# If your project is a Flutter app
-cp -r FYP-Thesis-Audit/skill/ ~/Desktop/MyFYPApp/thesis-audit/
+# Flutter app
+cp -r FYP-Thesis-Audit/skill/ ~/Desktop/MyFlutterApp/thesis-audit/
 
-# If your project is a React web app  
+# React web app
 cp -r FYP-Thesis-Audit/skill/ ~/Desktop/MyWebApp/thesis-audit/
 
-# If your project is a Python backend
-cp -r FYP-Thesis-Audit/skill/ ~/Desktop/MyAPI/thesis-audit/
+# Python project
+cp -r FYP-Thesis-Audit/skill/ ~/Desktop/MyPythonApp/thesis-audit/
 ```
 
-### Step 3: Run the Audit
+### Step 3: Run the Audit (5 Steps)
 
-Open your project in any AI coding assistant and paste this prompt:
+Open your project in any AI coding assistant and run **one step at a time**:
 
+#### 🔹 Step 1 — Project Overview & Tech Stack
 ```
-Read the file `thesis-audit/audit_prompt.md` and follow ALL instructions in it.
-
-Audit this entire project and generate the output file `PROJECT_AUDIT.md` 
-in the project root, using the template from `thesis-audit/audit_template.md`.
-
-Fill in every section completely. Do not skip anything. Read actual source 
-code files — don't guess from file names.
+Read `thesis-audit/audit_prompt.md`.
+Run STEP 1 only. Generate `AUDIT_01_overview.md` in the project root.
+Scan the full project structure, read dependency files, and document 
+the tech stack. Follow the template exactly.
 ```
 
-> ⏱️ The AI will take 5-10 minutes to scan your entire codebase and generate the audit.
+#### 🔹 Step 2 — Features & Screens
+```
+Read `thesis-audit/audit_prompt.md`.
+Run STEP 2 only. Generate `AUDIT_02_features.md` in the project root.
+Read every screen/page file and document all features, user flows,
+and screen-by-screen details.
+```
+
+#### 🔹 Step 3 — Data Models & Database
+```
+Read `thesis-audit/audit_prompt.md`.
+Run STEP 3 only. Generate `AUDIT_03_database.md` in the project root.
+Read all model files, database services, and document the complete
+database design with entity relationships.
+```
+
+#### 🔹 Step 4 — Auth, APIs & Backend
+```
+Read `thesis-audit/audit_prompt.md`.
+Run STEP 4 only. Generate `AUDIT_04_backend.md` in the project root.
+Read authentication and API service files. Document all auth flows,
+API integrations, and backend services.
+```
+
+#### 🔹 Step 5 — UI Design, Diagrams & Testing
+```
+Read `thesis-audit/audit_prompt.md`.
+Run STEP 5 only. Generate `AUDIT_05_ui_diagrams_testing.md` in the project root.
+Read theme files, compile diagram data from previous audit files,
+and create test cases. Reference AUDIT_01 through AUDIT_04 for context.
+```
+
+> ✅ After all 5 steps, you'll have **5 audit files** with complete project documentation!
 
 ### Step 4: Generate Your Thesis
 
-Once `PROJECT_AUDIT.md` is ready, use these prompts to write each chapter:
+Use these prompts to write each chapter (one at a time):
 
 ```
-Read `PROJECT_AUDIT.md` for complete project details.
-Read `thesis-audit/thesis_structure.md` for the thesis format and rules.
+Read all 5 audit files (AUDIT_01 through AUDIT_05) for project details.
+Read `thesis-audit/thesis_structure.md` for the thesis format.
 
-Write Chapter 1: INTRODUCTION of my FYP thesis.
-Follow University of Malakand CS Department formatting exactly.
-Use only the data from the audit file. Do not make up any features.
-Target length: 5-6 pages.
+Write Chapter [X]: [CHAPTER TITLE] of my FYP thesis.
+Follow University of Malakand CS Department formatting.
+Use only data from the audit files. Do not make up features.
+Target: [X] pages.
 ```
 
-**Repeat for each chapter (1 through 8)**, changing the chapter number and name.
+| Chapter | Prompt | Audit Files to Reference |
+|---------|--------|------------------------|
+| Chapter 1: Introduction | Write background, objectives, scope | AUDIT_01, AUDIT_02 |
+| Chapter 2: System Analysis | Write current vs proposed system | AUDIT_02, AUDIT_05 |
+| Chapter 3: Conceptual DB Design | Write ERD, entity descriptions | AUDIT_03 |
+| Chapter 4: Physical DB Design | Write table structures, types | AUDIT_03 |
+| Chapter 5: Functional Modelling | Write DFD, Use Case diagrams | AUDIT_05 |
+| Chapter 6: UI & Features | Write screen descriptions | AUDIT_02, AUDIT_05 |
+| Chapter 7: System Testing | Write test cases | AUDIT_05 |
+| Chapter 8: Conclusion | Write summary, future work | AUDIT_01, AUDIT_05 |
 
 ---
 
@@ -129,14 +168,38 @@ FYP-Thesis-Audit/
 ├── README.md                          # This file
 ├── LICENSE                            # MIT License
 ├── skill/                             # ← Copy this folder to your project
-│   ├── audit_prompt.md                # AI instructions for auditing
-│   ├── audit_template.md             # 18-section output template
-│   └── thesis_structure.md           # UoM thesis format + chapter guides
-├── examples/                          
-│   └── NoteNest_PROJECT_AUDIT.md     # Real example audit (NoteNest app)
-└── assets/
-    └── banner.png                     # Repo banner image
+│   ├── audit_prompt.md                # AI instructions (5-step audit)
+│   ├── audit_template.md              # Full template reference
+│   └── thesis_structure.md            # UoM thesis format + chapter guides
+└── examples/
+    └── NoteNest_PROJECT_AUDIT.md      # Real example audit (NoteNest app)
 ```
+
+### What Gets Generated in Your Project
+```
+your-project/
+├── thesis-audit/                      # (copied from this repo)
+│   ├── audit_prompt.md
+│   ├── audit_template.md
+│   └── thesis_structure.md
+├── AUDIT_01_overview.md               # ← Generated: Overview & Tech Stack
+├── AUDIT_02_features.md               # ← Generated: Features & Screens
+├── AUDIT_03_database.md               # ← Generated: Data Models & Database
+├── AUDIT_04_backend.md                # ← Generated: Auth, APIs & Backend
+└── AUDIT_05_ui_diagrams_testing.md    # ← Generated: UI, Diagrams & Testing
+```
+
+---
+
+## ❓ Why 5 Steps Instead of 1?
+
+| Problem with 1-Step | Solution with 5 Steps |
+|---------------------|----------------------|
+| ❌ AI hits **token limits** on large projects | ✅ Each step is small (~200-300 lines) |
+| ❌ AI **skips details** to fit everything | ✅ Each step is focused and thorough |
+| ❌ If it fails, you **lose everything** | ✅ If one step fails, retry just that step |
+| ❌ Takes 10+ minutes in one go | ✅ Each step takes 2-3 minutes |
+| ❌ Can't review as you go | ✅ Review each part before continuing |
 
 ---
 
@@ -144,14 +207,14 @@ FYP-Thesis-Audit/
 
 | Chapter | Title | Pages | Key Content |
 |---------|-------|-------|-------------|
-| **1** | Introduction | 5-6 | Background, problem statement, objectives, scope, motivation |
-| **2** | System Analysis | 5-6 | Current vs proposed system, feasibility study, requirements |
+| **1** | Introduction | 5-6 | Background, problem statement, objectives, scope |
+| **2** | System Analysis | 5-6 | Current vs proposed system, feasibility, requirements |
 | **3** | Conceptual Database Design | 5-6 | ER Diagram, entity-attribute descriptions, data dictionary |
-| **4** | Physical Database Design | 4-5 | Table structures, data types, constraints, storage strategy |
+| **4** | Physical Database Design | 4-5 | Table structures, data types, constraints |
 | **5** | Functional Modelling | 5-6 | DFD Level-0, DFD Level-1, Use Case Diagram |
 | **6** | User Interface & Features | 6-8 | Screenshots + description of every screen |
-| **7** | System Testing | 3-4 | Test strategy, test cases table, test evidence |
-| **8** | Conclusion & Future Work | 2-3 | Summary, challenges, social impact, future enhancements |
+| **7** | System Testing | 3-4 | Test strategy, test cases table, evidence |
+| **8** | Conclusion & Future Work | 2-3 | Summary, challenges, future enhancements |
 
 ### Formatting Rules
 
@@ -161,16 +224,14 @@ FYP-Thesis-Audit/
 | Headings | 14pt Bold, chapter titles ALL-CAPS |
 | Spacing | 1.5 line spacing |
 | Margins | 1 inch (Left: 1.5 inch for binding) |
-| Figures | Numbered by chapter — Figure 3.1, Figure 6.5 |
-| Tables | Numbered by chapter — Table 4.1, Table 7.1 |
-| Citations | Numeric style — [1], [2], [3] |
+| Figures | Numbered by chapter: Figure 3.1, Figure 6.5 |
+| Tables | Numbered by chapter: Table 4.1, Table 7.1 |
+| Citations | Numeric style: [1], [2], [3] |
 | Total Pages | 50-70 pages |
 
 ---
 
 ## 🔧 Supported Projects
-
-This audit tool works with **any software project** that has readable source code:
 
 | Framework | Language | Type |
 |-----------|----------|------|
@@ -189,102 +250,89 @@ This audit tool works with **any software project** that has readable source cod
 
 ## 💡 Pro Tips
 
-### For Better Audit Results
-- ✅ Make sure your project **compiles/builds** before auditing
-- ✅ Have a **clean project structure** (organized folders, named files)
-- ✅ Include a basic **README** in your project
-- ✅ Use **descriptive variable/function names** in your code
+### For Better Results
+- ✅ Make sure your project **builds** before auditing
+- ✅ Run **one step at a time** — don't ask for multiple steps together
+- ✅ **Review each audit file** before moving to the next step
+- ✅ If a step fails or is incomplete, just **retry that step**
 
-### For Better Thesis Output
-- 📖 Generate **one chapter at a time** — don't ask for all 8 at once
-- 📸 Take **screenshots** yourself for Chapter 6 (AI can't take them)
-- 📊 Ask the AI to **generate diagrams** (ERD, DFD, Use Case) from the audit data
+### For Thesis Writing
+- 📖 Write **one chapter at a time** — don't ask for all 8 at once
+- 📸 Take **screenshots** yourself for Chapter 6
+- 📊 Ask AI to **generate diagrams** (ERD, DFD, Use Case) from the audit data
 - ✏️ **Review and edit** — AI writes the draft, you polish it
 - 📝 Fill in **placeholders** manually (student name, supervisor, roll numbers)
 
 ### For Diagrams
-After the audit, ask the AI:
+After the audit, ask:
 ```
-Using the ERD data from Section 11 of PROJECT_AUDIT.md, 
+Using the ERD data from AUDIT_03_database.md, 
 generate an Entity Relationship Diagram for my project.
 ```
 ```
-Using the DFD data from Section 12 of PROJECT_AUDIT.md,
-generate a DFD Level-0 (Context Diagram) and DFD Level-1.
-```
-```
-Using the Use Case data from Section 13 of PROJECT_AUDIT.md,
-generate a UML Use Case Diagram.
+Using the DFD data from AUDIT_05_ui_diagrams_testing.md,
+generate a DFD Level-0 and DFD Level-1 diagram.
 ```
 
-You can also use free tools:
-- **[draw.io](https://app.diagrams.net)** — Free online diagram tool
-- **[Lucidchart](https://lucid.app)** — Free tier available
-- **[Mermaid Live Editor](https://mermaid.live)** — Code-based diagrams
+Free diagram tools: [draw.io](https://app.diagrams.net) | [Lucidchart](https://lucid.app) | [Mermaid Live](https://mermaid.live)
 
 ---
 
-## 📖 Full Workflow Example
+## 📖 Complete Workflow
 
 ```
 Your FYP Project (e.g., MyApp/)
          │
          ▼
-    ┌──────────────┐
-    │ Copy skill/  │  ← Step 1: Copy audit files to your project
-    │ to project   │
-    └──────┬───────┘
+    ┌─────────────────┐
+    │  Copy skill/     │  ← Clone repo, copy skill folder
+    │  to your project │
+    └──────┬──────────┘
            │
-           ▼
-    ┌──────────────┐
-    │ AI reads     │  ← Step 2: AI reads audit_prompt.md  
-    │ audit_prompt │     and scans your entire codebase
-    └──────┬───────┘
-           │
-           ▼
-    ┌──────────────────┐
-    │ PROJECT_AUDIT.md │  ← Step 3: AI generates comprehensive 
-    │ (300-500 lines)  │     audit document with ALL details
-    └──────┬───────────┘
-           │
-           ▼
-    ┌──────────────────┐
-    │ AI reads audit + │  ← Step 4: AI reads audit + thesis  
-    │ thesis_structure │     structure and writes each chapter
-    └──────┬───────────┘
-           │
-           ▼
-    ┌──────────────────┐
-    │ Complete Thesis   │  ← Output: 8 chapters, properly formatted
-    │ (50-70 pages)    │     for University of Malakand CS Dept
-    └──────────────────┘
+     ┌─────┴─────┐
+     ▼           ▼
+ Step 1       Step 2       Step 3       Step 4       Step 5
+ Overview     Features     Database     Backend      UI/Testing
+    │            │            │            │            │
+    ▼            ▼            ▼            ▼            ▼
+ AUDIT_01     AUDIT_02     AUDIT_03     AUDIT_04     AUDIT_05
+    │            │            │            │            │
+    └────────────┴────────────┴────────────┴────────────┘
+                              │
+                              ▼
+                 ┌───────────────────────┐
+                 │  AI reads all 5 files  │
+                 │  + thesis_structure    │
+                 └───────────┬───────────┘
+                             │
+                    ┌────────┴────────┐
+                    ▼                 ▼
+              Chapter 1          Chapter 2  ...  Chapter 8
+                    │                 │              │
+                    └────────┬────────┘              │
+                             ▼                       │
+                   Complete FYP Thesis ◄─────────────┘
+                      (50-70 pages)
 ```
 
 ---
 
 ## 🤝 Contributing
 
-Found a way to improve the audit? Have a different university format? Contributions are welcome!
-
-1. Fork this repository
-2. Create your branch (`git checkout -b feature/your-university`)
-3. Add your thesis structure to `skill/` or create a new format
-4. Submit a Pull Request
-
-### Ideas for Contributions
-- Add thesis formats for other Pakistani universities
-- Add thesis formats for international universities  
-- Improve the audit template with more sections
-- Add example audits for different project types
+Contributions welcome! Ideas:
+- Add thesis formats for other Pakistani universities (COMSATS, NUST, FAST, etc.)
+- Add thesis formats for international universities
+- Improve audit prompts for specific frameworks
+- Add more example audits
 - Translate to Urdu
+
+1. Fork → 2. Branch → 3. Add your format → 4. Pull Request
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
-You are free to use, modify, and share this tool. If it helps you, give it a ⭐!
+**MIT License** — free to use, modify, and share. If it helps, give it a ⭐!
 
 ---
 
@@ -292,11 +340,11 @@ You are free to use, modify, and share this tool. If it helps you, give it a ⭐
 
 **Rahim Dev** — [@rahimdev4](https://github.com/rahimdev4)
 
-> Built from the experience of writing the NoteNest FYP thesis at University of Malakand, CS Department.
+> Built from experience writing the NoteNest FYP thesis at University of Malakand, CS Department.
 
 ---
 
 <p align="center">
-  <strong>If this helps you write your thesis, please ⭐ star this repo!</strong><br/>
+  <strong>If this saves you time on your thesis, please ⭐ star this repo!</strong><br/>
   <sub>Made with ❤️ for CS students at University of Malakand and beyond</sub>
 </p>
